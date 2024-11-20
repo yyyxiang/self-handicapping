@@ -1,7 +1,7 @@
 # self-handicapping
 Code and data for: Xiang, Y., Gershman, S.J., & Gerstenberg, T. (2024). A signaling theory of self-handicapping.
 
-<div align="center"><img src="Figures/theory_schematic.png" alt="Theory Schematic" width="800" /></div>
+<div align="center"><img src="Figures/theory_schematic.png" alt="Theory Schematic" width="600" /></div>
 
 Experiment 1: https://gershmanlab.com/experiments/yang/hidden_genius/exp1final.html
 
