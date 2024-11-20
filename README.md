@@ -13,8 +13,7 @@ outcome and when it increases the perceived competence in the eyes of a naive ob
 With sophisticated observers (who reason recursively and thereby recognize the tactic), self-
 handicapping is less effective when followed by failure. We show that the theory also explains
 the findings of several past studies. By offering a systematic explanation of self-handicapping,
-the theory lays the groundwork for developing effective interventions.
-
+the theory lays the groundwork for developing effective interventions.<br>
 
 Experiment 1: https://gershmanlab.com/experiments/yang/hidden_genius/exp1final.html
 
