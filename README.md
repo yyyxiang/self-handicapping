@@ -15,6 +15,7 @@ handicapping is less effective when followed by failure. We show that the theory
 the findings of several past studies. By offering a systematic explanation of self-handicapping,
 the theory lays the groundwork for developing effective interventions.
 
+
 Experiment 1: https://gershmanlab.com/experiments/yang/hidden_genius/exp1final.html
 
 Experiment 2: https://gershmanlab.com/experiments/yang/hidden_genius/exp2final.html
