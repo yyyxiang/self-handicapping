@@ -1,7 +1,6 @@
 # self-handicapping
 Code and data for: Xiang, Y., Gershman, S.J., & Gerstenberg, T. (2024). A signaling theory of self-handicapping.
 
-<img src="Figures/theory_schematic.png" alt="Theory Schematic" width="800" />
 People use various strategies to bolster the perception of their competence. One strategy
 is self-handicapping, by which people place obstacles that undermine performance in order
 to protect perceived competence in case of failure, or enhance it in case of success. Despite
@@ -13,7 +12,9 @@ outcome and when it increases the perceived competence in the eyes of a naive ob
 With sophisticated observers (who reason recursively and thereby recognize the tactic), self-
 handicapping is less effective when followed by failure. We show that the theory also explains
 the findings of several past studies. By offering a systematic explanation of self-handicapping,
-the theory lays the groundwork for developing effective interventions.<br>
+the theory lays the groundwork for developing effective interventions.
+
+<img src="Figures/theory_schematic.png" alt="Theory Schematic" width="800" />
 
 Experiment 1: https://gershmanlab.com/experiments/yang/hidden_genius/exp1final.html
 
