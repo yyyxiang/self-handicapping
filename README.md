@@ -7,4 +7,4 @@ Experiment 2: https://gershmanlab.com/experiments/yang/hidden_genius/exp2final.h
 
 Preregistration: https://aspredicted.org/f4h3-f4xv.pdf
 
-Under the Code folder, model_fitting.R outputs the fitted parameter values (fitted_params.csv). simulation.R then uses these values to generate model predictions (model_prediction.csv). plot_figures.R uses data under the Data folder and model predictions to plot figures.
+Under the Code folder, `model_fitting.R` outputs the fitted parameter values (fitted_params.csv). simulation.R then uses these values to generate model predictions (model_prediction.csv). plot_figures.R uses data under the Data folder and model predictions to plot figures.
