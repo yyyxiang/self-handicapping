@@ -29,5 +29,5 @@ In the `Code` folder, `model_fitting.R` outputs the fitted parameter values (`fi
 
 In the `Data` folder, `data.csv` contains data from both experiments. The `accuracy` and `probability_10` (probability of choosing to be evaluated on 10 answers) columns are from the actor block. `observer`, `outcome`, and `evaluation` columns are from the naive and sophisticated observer blocks.
 
-Our experiments used JavaScript library jsPsych v7.3.4, which can be downloaded from here: [https://github.com/jspsych/jsPsych/releases](https://github.com/jspsych/jsPsych/releases/tag/jspsych%407.3.4). In the `Experiment` folder, `exp1.html` and `exp2.html` are the html files for Experiment 1 and Experiment 2. 
+Our experiments used JavaScript library jsPsych v7.3.4, which can be downloaded from here: [https://github.com/jspsych/jsPsych/releases](https://github.com/jspsych/jsPsych/releases/tag/jspsych%407.3.4). In the `Experiment` folder, `exp1.html` and `exp2.html` are the html files for Experiment 1 and Experiment 2 (without the consent form). 
 `plugin-html-slider-response.js` (shows four sliders at once) and `plugin-survey-multi-choice.js` (adds figure to the left of the multi-choice questions) were modified plugins for the purposes of our experiments. `save_data.php` is used to write data to server.
