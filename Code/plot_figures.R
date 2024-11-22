@@ -12,19 +12,19 @@ actor_prediction <- simulation %>% filter(block == 'actor')
 observer_prediction <- simulation %>% filter(block == 'observer')
 
 pdf('./../Figures/fig_observer.pdf', onefile = T, width = 10, height = 5)
-p1_1 <- observer_plot(observer_dat, observer_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
+p1_1 <- observer_plot(observer_dat, observer_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Perceived Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
 p1_2 <- observer_plot(observer_dat, observer_prediction, 2) + labs(title = 'Experiment 2 \n Goal = Success', y = NULL) + theme(plot.title = element_text(hjust = 0.5))
 p1_1 + p1_2
 dev.off()
 
 pdf('./../Figures/fig_actor.pdf', onefile = T, width = 9, height = 4)
-p2_1 <- actor_plot(actor_dat, actor_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
+p2_1 <- actor_plot(actor_dat, actor_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Perceived Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
 p2_2 <- actor_plot(actor_dat, actor_prediction, 2) + labs(title = 'Experiment 2 \n Goal = Success', y = NULL) + theme(plot.title = element_text(hjust = 0.5))
 p2_1 + p2_2
 dev.off()
 
 pdf('./../Figures/fig_evaluation_change.pdf', onefile = T, width = 12, height = 4)
-p3_1 <- evaluation_change_plot(observer_dat, observer_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
+p3_1 <- evaluation_change_plot(observer_dat, observer_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Perceived Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
 p3_2 <- evaluation_change_plot(observer_dat, observer_prediction, 2) + labs(title = 'Experiment 2 \n Goal = Success', y = NULL) + theme(plot.title = element_text(hjust = 0.5))
 p3_1 + p3_2
 dev.off()
