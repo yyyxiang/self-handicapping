@@ -21,6 +21,8 @@ Experiment 1: https://gershmanlab.com/experiments/yang/hidden_genius/exp1final.h
 
 Experiment 2: https://gershmanlab.com/experiments/yang/hidden_genius/exp2final.html
 
+(The links may take about 5 seconds to load)
+
 Preregistration: https://aspredicted.org/f4h3-f4xv.pdf
 
 In the `Code` folder, `model_fitting.R` outputs the fitted parameter values (`fitted_params.csv`). `simulation.R` then uses these values to generate model predictions (`model_prediction.csv`). `plot_figures.R` uses data under the Data folder and model predictions to plot figures. `helper.R` contains helper functions for plotting. `regression.R` contains Bayesian mixed-effects models. 
