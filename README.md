@@ -1,5 +1,5 @@
 # A signaling theory of self-handicapping
-Code and data for: Xiang, Y., Gershman, S.J., & Gerstenberg, T. (2024). A signaling theory of self-handicapping.
+Code and data for: A signaling theory of self-handicapping.
 
 <div align="center"><img src="Figures/theory_schematic.png" alt="Theory Schematic" width="600" /></div>
 
