@@ -73,12 +73,7 @@
         var trial = {
             type: jsPsychHtmlSliderResponse,
             stimulus: `<p style='font-size: 22px'> <b>Contestant ${contestant_idx}</b>`,
-            prompt1: function() {
-                var pass10_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_10pass').values;
-                var pass20_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_20pass').values;
-                var fail10_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_10fail').values;
-                var fail20_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_20fail').values;
-                return `<p> Below is this contestant's overall performance in a number of practice tests: </p><br>            
+            prompt1: `<p> Below is this contestant's overall performance in a number of practice tests: </p><br>            
             <div class="row">
             <div class="column" style="float: left;"><img src=${actor_contestant_images[contestant_idx-1]} height='200'></img></div>
             <div class="column" style="float: right; display: flex;"> 
@@ -111,8 +106,7 @@
             <p> Remember that the judges only see the <u>number of answers the contestant was evaluated on</u> and <u>whether at least 8 of them were correct</u>: 
             <br>'10 answers, PASS', '20 answers, PASS', '10 answers, FAIL', or '20 answers, FAIL'.
             <br> <span style='font-size: 16px'> (Click on the slider bar to make the slider button appear.) </span></p>
-            </div>`
-        },
+            </div>`,
             css_classes: ['hidden_slider_thumb1'],
             on_load: function() {
                 let slider1 = $('input#jspsych-html-slider-response-response1.jspsych-slider');
