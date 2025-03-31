@@ -73,12 +73,7 @@
         var trial = {
             type: jsPsychHtmlSliderResponse,
             stimulus: `<p style='font-size: 22px'> <b>Contestant ${contestant_idx}</b>`,
-            prompt1: function() {
-                var pass10_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_10pass').values;
-                var pass20_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_20pass').values;
-                var fail10_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_10fail').values;
-                var fail20_competence = jsPsych.data.get().filter({block: 'naive_observer'}).select('naive_competence_20fail').values;
-                return `<p> Below is this contestant's overall performance in a number of practice tests: </p><br>            
+            prompt1: `<p> Below is this contestant's overall performance in a number of practice tests: </p><br>            
             <div class="row">
             <div class="column" style="float: left;"><img src=${actor_contestant_images[contestant_idx-1]} height='200'></img></div>
             <div class="column" style="float: right; display: flex;"> 
@@ -110,8 +105,7 @@
             <div style='text-align: center; display: flex; flex-wrap: wrap; width: 850px'>
             <p> Remember that the contestant's only goal is to get at least 8 correct answers among the answers evaluated.
             <br> <span style='font-size: 16px'> (Click on the slider bar to make the slider button appear.) </span></p>
-            </div>`
-        },
+            </div>`,
             css_classes: ['hidden_slider_thumb1'],
             on_load: function() {
                 let slider1 = $('input#jspsych-html-slider-response-response1.jspsych-slider');
