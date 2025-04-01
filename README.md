@@ -25,9 +25,9 @@ Experiment 2: https://gershmanlab.com/experiments/yang/hidden_genius/exp2final.h
 
 Preregistration: https://aspredicted.org/f4h3-f4xv.pdf
 
-In the `Code` folder, `model_fitting.R` outputs the fitted parameter values (`fitted_params.csv`). `simulation.R` then uses these values to generate model predictions (`model_prediction.csv`). `plot_figures.R` uses data under the Data folder and model predictions to plot figures. `helper.R` contains helper functions for plotting. `regression.R` contains Bayesian mixed-effects models. 
+In the `Code` folder, `model_fitting.R` outputs the fitted parameter values (`fitted_params.csv`). `simulation.R` then uses these values to generate model predictions (`model_prediction.csv`). `plot_figures.R` uses data under the Data folder and model predictions to plot figures. `helper.R` contains helper functions for plotting. `regression.R` contains Bayesian mixed-effects models. The `Supplement` subfolder contains code for the alternative models.
 
-In the `Data` folder, `data.csv` contains data from both experiments. The `accuracy` and `probability_10` (probability of choosing to be evaluated on 10 answers) columns are from the actor block. `observer`, `outcome`, and `evaluation` columns are from the naive and sophisticated observer blocks.
+In the `Data` folder, `data.csv` contains data from both experiments, indexed by `exp_index`. The `accuracy` and `probability_10` (probability of choosing to be evaluated on 10 answers) columns are from the actor block. `observer`, `outcome`, and `evaluation` columns are from the naive and sophisticated observer blocks.
 
 Our experiments used JavaScript library jsPsych v7.3.4, which can be downloaded from here: [https://github.com/jspsych/jsPsych/releases](https://github.com/jspsych/jsPsych/releases/tag/jspsych%407.3.4). In the `Experiment` folder, `exp1.html` and `exp2.html` are the html files for Experiment 1 and Experiment 2 (without the consent form). 
 `plugin-html-slider-response.js` (shows four sliders at once) and `plugin-survey-multi-choice.js` (adds figure to the left of the multi-choice questions) were modified plugins for the purposes of our experiments. `save_data.php` is used to write data to server.
