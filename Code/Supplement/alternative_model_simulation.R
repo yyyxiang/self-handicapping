@@ -12,7 +12,7 @@ prob_success <- function(c, gamma, d, k = signaling_model_fitted_params$k, b = s
 }
 
 prediction_df <- NULL
-for (mdl in c('self-deception', 'hide-incompetence')) {
+for (mdl in c('ambiguity-seeking', 'hide-incompetence')) {
   fitted_params <- alternative_model_fitted_params %>% filter(model == mdl)
   for (exp in 1:2) {
     if (exp == 1) {
@@ -23,7 +23,7 @@ for (mdl in c('self-deception', 'hide-incompetence')) {
     
     optimal_gamma_df <- NULL
     for (true_c in c_seq) {
-      if (mdl == 'self-deception') {
+      if (mdl == 'ambiguity-seeking') {
         values_df <- data.frame(exp_index = paste0('exp', exp), true_c = true_c, true_accuracy = round(true_c/20, 1), gamma = gamma_seq, 
                                 value = -fitted_params$alpha * (gamma_seq - fitted_params$beta)^2)
       } else if (mdl == 'hide-incompetence') {
