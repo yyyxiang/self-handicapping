@@ -15,7 +15,7 @@ fit_model <- function(params, model) {
     
     optimal_gamma_df <- NULL
     for (true_c in c_seq) {
-      if (model == 'self-deception') {
+      if (model == 'ambiguity-seeking') {
         values_df <- data.frame(true_c = true_c, true_accuracy = round(true_c/20, 1), gamma = gamma_seq, 
                                 value = -alpha * (gamma_seq - beta)^2)
       } else if (model == 'hide-incompetence') {
@@ -48,7 +48,7 @@ fit_model <- function(params, model) {
 }
 
 fitted_params <- NULL
-for (mdl in c('self-deception', 'hide-incompetence')) {
+for (mdl in c('ambiguity-seeking', 'hide-incompetence')) {
   fit = optim(par = c(1, 1, 1, 1),
               fn = function(x) fit_model(x, model = mdl),
               method = 'Nelder-Mead')
