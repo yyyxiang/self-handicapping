@@ -5,7 +5,7 @@ source('helper.R')
 dat <- read.csv('./../../Data/data.csv', header = T, stringsAsFactors = T)
 actor_dat <- dat %>% filter(block == 'actor')
 
-for (mdl in c('self-deception', 'hide-incompetence')) {
+for (mdl in c('ambiguity-seeking', 'hide-incompetence')) {
   simulation <- read.csv('alternative_model_prediction.csv', header = T, stringsAsFactors = T) %>% 
     filter(model == mdl)
   
