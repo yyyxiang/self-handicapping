@@ -37,12 +37,17 @@ for (exp in 1:2) {
                failure_posterior = prior_c * failure_likelihood) %>% # apply Bayes' rule
         mutate(success_posterior = success_posterior / sum(success_posterior),
                failure_posterior = failure_posterior / sum(failure_posterior)) # normalize
+      
+      failure_posterior_str <- paste(df$failure_posterior, collapse = ';')
+      success_posterior_str <- paste(df$success_posterior, collapse = ';')
       failure_expectation <- sum(df$c * df$failure_posterior) # E[c|s=1, gamma]
       success_expectation <- sum(df$c * df$success_posterior) # E[c|s=0, gamma]
+      
       if (true_c == c_seq[1]) { # naive observer's evaluations don't depend on true_c, so we're saving it only once
-        naive_df <- rbind(naive_df, data.frame(exp_index = paste0('exp', exp), gamma = gamma, observer = 'naive', block = 'observer',
-                                               fail = failure_expectation,
-                                               pass = success_expectation))
+        naive_df <- rbind(naive_df, 
+                          data.frame(exp_index = paste0('exp', exp), gamma = gamma, observer = 'naive', block = 'observer',
+                                     fail = failure_expectation,pass = success_expectation,
+                                     posterior_fail = failure_posterior_str, posterior_pass = success_posterior_str))
       }
       
       # actor
@@ -81,19 +86,29 @@ for (exp in 1:2) {
              failure_posterior = prior_c * failure_likelihood) %>%
       mutate(success_posterior = success_posterior / sum(success_posterior),
              failure_posterior = failure_posterior / sum(failure_posterior))
+    
+    failure_posterior_str <- paste(df$failure_posterior, collapse = ';')
+    success_posterior_str <- paste(df$success_posterior, collapse = ';')
     failure_expectation <- sum(df$c * df$failure_posterior)
     success_expectation <- sum(df$c * df$success_posterior)
-    sophisticated_df <- rbind(sophisticated_df, data.frame(exp_index = paste0('exp', exp), gamma = gamma, observer = 'sophisticated', block = 'observer',
-                                                           fail = failure_expectation,
-                                                           pass = success_expectation)) 
+    sophisticated_df <- rbind(sophisticated_df, 
+                              data.frame(exp_index = paste0('exp', exp), gamma = gamma, observer = 'sophisticated', block = 'observer',
+                                         fail = failure_expectation,pass = success_expectation,
+                                         posterior_fail = failure_posterior_str, posterior_pass = success_posterior_str))
   }
   observer_prediction <- rbind(naive_df, sophisticated_df) %>% 
     mutate(answers = case_when(gamma == 0.5 ~ 10,
                                T ~ 20)) %>% 
-    pivot_longer(cols = c(pass, fail), names_to = 'outcome', values_to = 'evaluation') %>% 
-    mutate(outcome = paste0(outcome, answers),
-           evaluation = evaluation / 20 * 100) %>% 
-    select(exp_index, block, observer, outcome, evaluation)
+    mutate(pass = as.character(pass),
+           fail = as.character(fail)) %>% 
+    pivot_longer(cols = c(pass, fail, posterior_pass, posterior_fail), names_to = 'key', values_to = 'value') %>% 
+    mutate(outcome = paste0(ifelse(grepl('pass', key), 'pass', 'fail'), answers),
+           value_type = ifelse(grepl('posterior', key), 'posterior', 'evaluation')) %>% 
+    select(-answers, -key) %>% 
+    pivot_wider(names_from = value_type, values_from = value) %>%
+    mutate(evaluation = as.numeric(evaluation),
+           evaluation = evaluation / 20 * 100) %>%
+    select(exp_index, block, observer, outcome, evaluation, posterior)
   
   exp_df <- dplyr::bind_rows(actor_prediction, observer_prediction)
   prediction_df <- rbind(prediction_df, exp_df)
@@ -101,4 +116,3 @@ for (exp in 1:2) {
 
 prediction_df <- prediction_df %>% arrange(exp_index, block, observer, outcome)
 write.csv(prediction_df,'model_prediction.csv', row.names = FALSE)
-
