@@ -1,5 +1,6 @@
 library(tidyverse)
 library(patchwork)
+library(LaplacesDemon) # for KLD
 source('helper.R')
 
 ########## New experiments ##########
@@ -27,6 +28,19 @@ pdf('./../Figures/fig_evaluation_change.pdf', onefile = T, width = 12, height = 
 p3_1 <- evaluation_change_plot(observer_dat, observer_prediction, 1) + labs(title = 'Experiment 1 \n Goal = Perceived Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
 p3_2 <- evaluation_change_plot(observer_dat, observer_prediction, 2) + labs(title = 'Experiment 2 \n Goal = Success', y = NULL) + theme(plot.title = element_text(hjust = 0.5))
 p3_1 + p3_2
+dev.off()
+
+posterior_df <- observer_prediction %>%
+  select(-evaluation) %>%
+  pivot_wider(names_from = 'observer', values_from = 'posterior') %>%
+  rowwise() %>%
+  mutate(divergence = KLD(parse_posterior(naive), parse_posterior(sophisticated))$mean.sum.KLD) %>% 
+  ungroup()
+
+pdf('./../figures/fig_divergence.pdf', onefile = T, width = 12, height = 4)
+p4_1 <- kl_divergence_plot(posterior_df, 1) + labs(title = 'Experiment 1 \n Goal = Perceived Competence') + theme(plot.title = element_text(hjust = 0.5), legend.position = 'none')
+p4_2 <- kl_divergence_plot(posterior_df, 2) + labs(title = 'Experiment 2 \n Goal = Success', y = NULL) + theme(plot.title = element_text(hjust = 0.5))
+p4_1 + p4_2
 dev.off()
 
 ########## Past experiments ##########
@@ -232,4 +246,3 @@ pdf('./../Figures/fig_previous_studies.pdf', onefile = T, width = 7, height = 9)
   (p2_1 | p2_2) /
   (p3_1 | p3_2)
 dev.off()
-
